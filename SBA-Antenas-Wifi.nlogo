@@ -1,4 +1,5 @@
-globals [numero-antenas capacidad usuarios run-duration suma-uso uso-promedio suma-conectados conectados-promedio]
+globals [numero-antenas capacidad usuarios run-duration suma-uso
+         uso-promedio suma-conectados conectados-promedio]
 turtles-own [destinox destinoy minutos-en-u internet]
 
 to setup
@@ -62,7 +63,8 @@ to go
     set suma-uso suma-uso + (count turtles with [internet = true] / capacidad) * 100
     set uso-promedio suma-uso / ticks
 
-    set suma-conectados suma-conectados + (count turtles with [internet = true] / count turtles) * 100
+    set suma-conectados suma-conectados +
+    (count turtles with [internet = true] / count turtles) * 100
     set conectados-promedio suma-conectados / ticks
   ]
   tick
@@ -173,7 +175,7 @@ true
 false
 "" ""
 PENS
-"default" 1.0 0 -16777216 true "" "plot (count turtles with [internet = true] / capacidad) * 100"
+"default" 1.0 0 -13840069 true "" "plot (count turtles with [internet = true] / capacidad) * 100"
 
 PLOT
 18
@@ -191,7 +193,7 @@ true
 false
 "" ""
 PENS
-"default" 1.0 0 -16777216 true "" "plot (count turtles with [internet = true] / (count turtles)) * 100"
+"default" 1.0 0 -13791810 true "" "plot (count turtles with [internet = true] / (count turtles)) * 100"
 
 MONITOR
 31
@@ -234,7 +236,7 @@ CHOOSER
 dia-semana
 dia-semana
 "ninguno" "miércoles" "jueves" "viernes" "sábado" "domingo"
-3
+5
 
 CHOOSER
 358
