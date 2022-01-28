@@ -1,6 +1,7 @@
 globals [numero-antenas capacidad usuarios run-duration suma-uso
          uso-promedio suma-conectados conectados-promedio]
 turtles-own [destinox destinoy minutos-en-u internet]
+patches-own [antena]
 
 to setup
   ca
@@ -27,6 +28,7 @@ to wifi
     set pcolor 63
   ]
   set pcolor white
+  set antena true
 end
 
 to go
@@ -47,7 +49,7 @@ to go
   ]
   walk
   ask turtles [set internet false]
-  ask patches with [pcolor = white][
+  ask patches with [antena = true][
     wifi
     let area-users turtles in-radius rango with [internet = false]
     ifelse count area-users < 30
@@ -236,7 +238,7 @@ CHOOSER
 dia-semana
 dia-semana
 "ninguno" "miércoles" "jueves" "viernes" "sábado" "domingo"
-5
+0
 
 CHOOSER
 358
@@ -246,7 +248,7 @@ CHOOSER
 rango
 rango
 5 7
-0
+1
 
 @#$#@#$#@
 ## WHAT IS IT?
